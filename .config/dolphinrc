@@ -1,0 +1,21 @@
+[ContentDisplay]
+DirectorySizeMode=ContentSize
+
+[DetailsMode]
+PreviewSize=22
+
+[General]
+ShowFullPathInTitlebar=true
+Version=202
+ViewPropsTimestamp=2024,12,12,23,50,31.148
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
