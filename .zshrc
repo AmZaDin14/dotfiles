@@ -88,6 +88,7 @@ eval "$(uv generate-shell-completion zsh)"
 
 # sudoedit
 export EDITOR=/usr/bin/nvim
+alias se='sudoedit'
 
 # fnm
 export PATH="$PATH:$HOME/.local/share/fnm"
