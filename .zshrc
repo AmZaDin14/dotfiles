@@ -37,6 +37,7 @@ bindkey -e
 bindkey '^p'    history-search-backward
 bindkey '^n'    history-search-forward
 bindkey '^[w'   kill-region
+bindkey '^[[9;5u'   autosuggest-accept
 
 # Ctrl Backspace
 autoload -U select-word-style
@@ -75,12 +76,15 @@ alias vim='nvim'
 alias vi='vim'
 alias v='vi'
 alias c='clear'
-alias matrix='unimatrix -ab -s 96 -l s'
-alias cz='chezmoi'
+alias matrix='unimatrix -ab -s 96 -l s -c blue'
+alias z='zellij'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# rustup
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # uv
 export PATH="$PATH:$HOME/.local/bin"
@@ -99,6 +103,16 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 alias npm="bun"
 alias npx="bunx"
+
+# spark
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export SPARK_HOME=/opt/spark
+export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_PYTHON=/usr/bin/python3
+
+# docker
+alias d-pihole="docker compose -f /opt/stacks/pihole/compose.yaml"
+alias d-mysql="docker compose -f /opt/stacks/mysql/compose.yaml"
 
 # fastfetch
 fastfetch --config os

@@ -1,13 +1,83 @@
 layout {
-    pane
-    pane size=1 split_direction="vertical" {
-        pane size="80%" borderless=true {
-            plugin location="compact-bar"
-        }
-        pane size="20%" borderless=true {
-            plugin location="file:~/.config/zellij/plugins/zellij-what-time.wasm" {
-                date_format ""
-                time_format "%H.%M"
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                color_rosewater "#f5e0dc"
+                color_flamingo "#f2cdcd"
+                color_pink "#f5c2e7"
+                color_mauve "#cba6f7"
+                color_red "#f38ba8"
+                color_maroon "#eba0ac"
+                color_peach "#fab387"
+                color_yellow "#f9e2af"
+                color_green "#a6e3a1"
+                color_teal "#94e2d5"
+                color_sky "#89dceb"
+                color_sapphire "#74c7ec"
+                color_blue "#89b4fa"
+                color_lavender "#b4befe"
+                color_text "#cdd6f4"
+                color_subtext1 "#bac2de"
+                color_subtext0 "#a6adc8"
+                color_overlay2 "#9399b2"
+                color_overlay1 "#7f849c"
+                color_overlay0 "#6c7086"
+                color_surface2 "#585b70"
+                color_surface1 "#45475a"
+                color_surface0 "#313244"
+                color_base "#1e1e2e"
+                color_mantle "#181825"
+                color_crust "#11111b"
+
+                format_left   "#[bg=$sapphire] #[bg=$surface0,fg=$sapphire,bold] {session} {mode}#[bg=$surface0] {tabs}"
+                format_center "{notifications}"
+                format_right  "#[bg=$surface1,fg=$lavender,bold] {datetime} #[bg=$lavender] "
+                format_space  "#[bg=$surface0]"
+                format_hide_on_overlength "true"
+                format_precedence "lrc"
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[bg=$surface0]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "false"
+
+                mode_normal        "#[bg=$green] #[bg=$surface0,fg=$green,bold] NORMAL "
+                mode_tmux          "#[bg=$mauve] #[bg=$surface0,fg=$mauve,bold] TMUX "
+                mode_locked        "#[bg=$red] #[bg=$surface0,fg=$red,bold] LOCKED "
+                mode_pane          "#[bg=$teal] #[bg=$surface0,fg=$teal,bold] PANE "
+                mode_tab           "#[bg=$teal] #[bg=$surface0,fg=$teal,bold] TAB "
+                mode_scroll        "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] SCROLL "
+                mode_enter_search  "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] ENT-SEARCH "
+                mode_search        "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] SEARCHARCH "
+                mode_resize        "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RESIZE "
+                mode_rename_tab    "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RENAME-TAB "
+                mode_rename_pane   "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RENAME-PANE "
+                mode_move          "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] MOVE "
+                mode_session       "#[bg=$pink] #[bg=$surface0,fg=$pink,bold] SESSION "
+                mode_prompt        "#[bg=$pink] #[bg=$surface0,fg=$pink,bold] PROMPT "
+
+                tab_normal              "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{floating_indicator}"
+                tab_normal_fullscreen   "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{fullscreen_indicator}"
+                tab_normal_sync         "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{sync_indicator}"
+                tab_active              "#[bg=$surface0,fg=$text,bold]{index}|{name}{floating_indicator}"
+                tab_active_fullscreen   "#[bg=$surface0,fg=$text,bold]{index}|{name}{fullscreen_indicator}"
+                tab_active_sync         "#[bg=$surface0,fg=$text,bold]{index}|{name}{sync_indicator}"
+                tab_separator           "#[bg=$surface0] "
+
+                tab_sync_indicator       " "
+                tab_fullscreen_indicator " 󰊓"
+                tab_floating_indicator   " 󰹙"
+
+                notification_format_unread "#[bg=$yellow,fg=$crust] #[bg=$surface1,fg=$yellow] {message} "
+                notification_format_no_notifications ""
+                notification_show_interval "10"
+
+                datetime          "{format}"
+                datetime_format   "%H.%M"
+                datetime_timezone "Asia/Jakarta"
             }
         }
     }
