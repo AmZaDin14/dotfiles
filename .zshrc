@@ -115,4 +115,4 @@ alias d-pihole="docker compose -f /opt/stacks/pihole/compose.yaml"
 alias d-mysql="docker compose -f /opt/stacks/mysql/compose.yaml"
 
 # fastfetch
-fastfetch --config os
+fastfetch

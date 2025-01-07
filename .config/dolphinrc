@@ -1,3 +1,6 @@
+[UiSettings]
+ColorScheme=catppuccin-mocha-lavender
+
 [ContentDisplay]
 DirectorySizeMode=ContentSize
 
