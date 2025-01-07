@@ -14,12 +14,13 @@ window#waybar {
   transition-property: background-color;
   transition-duration: 0.1s;
   border-bottom: 1px solid @overlay1;
+  opacity: 0.8;
 }
 
 #window {
   margin: 8px;
-  padding-left: 8;
-  padding-right: 8;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 button {
