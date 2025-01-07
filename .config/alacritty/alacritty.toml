@@ -1,0 +1,10 @@
+general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[font]
+size = 12
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[window]
+opacity = 0.9
