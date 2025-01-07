@@ -1,5 +1,4 @@
-[UiSettings]
-ColorScheme=catppuccin-mocha-lavender
+MenuBar=Disabled
 
 [ContentDisplay]
 DirectorySizeMode=ContentSize
@@ -8,6 +7,7 @@ DirectorySizeMode=ContentSize
 PreviewSize=22
 
 [General]
+GlobalViewProps=false
 ShowFullPathInTitlebar=true
 Version=202
 ViewPropsTimestamp=2024,12,12,23,50,31.148
@@ -21,4 +21,7 @@ MenuBar=Disabled
 ToolBarsMovable=Disabled
 
 [PreviewSettings]
-Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,gdk-pixbuf-thumbnailer
+
+[UiSettings]
+ColorScheme=catppuccin-mocha-lavender
