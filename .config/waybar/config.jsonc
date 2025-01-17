@@ -3,7 +3,14 @@
   "margin": "5 5 0 5",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock"],
+  "modules-right": [
+    "network#speed",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+  ],
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
@@ -34,6 +41,11 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "on-click": "kitty -e nmtui",
+  },
+  "network#speed": {
+    "interval": 1,
+    "format": "{bandwidthTotalBytes}",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",

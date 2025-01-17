@@ -29,15 +29,16 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 
-# Starship
-eval "$(starship init zsh)"
+# Prompt
+# eval "$(starship init zsh)" # Starship
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" # Oh-My-Posh
 
 # Keybindings
 bindkey -e
 bindkey '^p'    history-search-backward
 bindkey '^n'    history-search-forward
 bindkey '^[w'   kill-region
-bindkey '^[[9;5u'   autosuggest-accept
+bindkey '^@'   autosuggest-accept
 
 # Ctrl Backspace
 autoload -U select-word-style
@@ -64,7 +65,7 @@ setopt hist_find_no_dups
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
@@ -77,7 +78,10 @@ alias vi='vim'
 alias v='vi'
 alias c='clear'
 alias matrix='unimatrix -ab -s 96 -l s -c blue'
-alias z='zellij'
+
+alias t='tmux'
+bindkey -s '^[f' "tmux-sessionizer\n"
+bindkey -s '^[t' "t\n"
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -101,8 +105,6 @@ eval "$(fnm env)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-alias npm="bun"
-alias npx="bunx"
 
 # spark
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
@@ -110,9 +112,18 @@ export SPARK_HOME=/opt/spark
 export PATH=$SPARK_HOME/bin:$PATH
 export PYSPARK_PYTHON=/usr/bin/python3
 
-# docker
-alias d-pihole="docker compose -f /opt/stacks/pihole/compose.yaml"
-alias d-mysql="docker compose -f /opt/stacks/mysql/compose.yaml"
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# neovim
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # fastfetch
 fastfetch
