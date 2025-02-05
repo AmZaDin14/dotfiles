@@ -1,6 +1,5 @@
 layout {
     default_tab_template {
-        children
         pane size=1 borderless=true {
             plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
                 color_rosewater "#f5e0dc"
@@ -24,16 +23,16 @@ layout {
                 color_overlay1 "#7f849c"
                 color_overlay0 "#6c7086"
                 color_surface2 "#585b70"
-                color_surface1 "#45475a"
-                color_surface0 "#313244"
+                color_surface1 "#45475a00"
+                color_surface0 "#31324400"
                 color_base "#1e1e2e"
                 color_mantle "#181825"
                 color_crust "#11111b"
 
-                format_left   "#[bg=$sapphire] #[bg=$surface0,fg=$sapphire,bold] {session} {mode}#[bg=$surface0] {tabs}"
-                format_center "{notifications}"
+                format_left   "#[bg=$sapphire] #[bg=$surface1,fg=$sapphire,bold] {session} #[bg=#00000000] {mode}#[bg=$surface1]"
+                format_center "{tabs}"
                 format_right  "#[bg=$surface1,fg=$lavender,bold] {datetime} #[bg=$lavender] "
-                format_space  "#[bg=$surface0]"
+                format_space  "#[bg=#00000000]"
                 format_hide_on_overlength "true"
                 format_precedence "lrc"
 
@@ -44,41 +43,38 @@ layout {
 
                 hide_frame_for_single_pane "false"
 
-                mode_normal        "#[bg=$green] #[bg=$surface0,fg=$green,bold] NORMAL "
-                mode_tmux          "#[bg=$mauve] #[bg=$surface0,fg=$mauve,bold] TMUX "
-                mode_locked        "#[bg=$red] #[bg=$surface0,fg=$red,bold] LOCKED "
-                mode_pane          "#[bg=$teal] #[bg=$surface0,fg=$teal,bold] PANE "
-                mode_tab           "#[bg=$teal] #[bg=$surface0,fg=$teal,bold] TAB "
-                mode_scroll        "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] SCROLL "
-                mode_enter_search  "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] ENT-SEARCH "
-                mode_search        "#[bg=$flamingo] #[bg=$surface0,fg=$flamingo,bold] SEARCHARCH "
-                mode_resize        "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RESIZE "
-                mode_rename_tab    "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RENAME-TAB "
-                mode_rename_pane   "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] RENAME-PANE "
-                mode_move          "#[bg=$yellow] #[bg=$surface0,fg=$yellow,bold] MOVE "
-                mode_session       "#[bg=$pink] #[bg=$surface0,fg=$pink,bold] SESSION "
-                mode_prompt        "#[bg=$pink] #[bg=$surface0,fg=$pink,bold] PROMPT "
+                mode_normal        "#[bg=$green] #[bg=$surface1,fg=$green,bold] NORMAL "
+                mode_tmux          "#[bg=$mauve] #[bg=$surface1,fg=$mauve,bold] TMUX "
+                mode_locked        "#[bg=$red] #[bg=$surface1,fg=$red,bold] LOCKED "
+                mode_pane          "#[bg=$teal] #[bg=$surface1,fg=$teal,bold] PANE "
+                mode_tab           "#[bg=$teal] #[bg=$surface1,fg=$teal,bold] TAB "
+                mode_scroll        "#[bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] SCROLL "
+                mode_enter_search  "#[bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] ENT-SEARCH "
+                mode_search        "#[bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] SEARCHARCH "
+                mode_resize        "#[bg=$yellow] #[bg=$surface1,fg=$yellow,bold] RESIZE "
+                mode_rename_tab    "#[bg=$yellow] #[bg=$surface1,fg=$yellow,bold] RENAME-TAB "
+                mode_rename_pane   "#[bg=$yellow] #[bg=$surface1,fg=$yellow,bold] RENAME-PANE "
+                mode_move          "#[bg=$yellow] #[bg=$surface1,fg=$yellow,bold] MOVE "
+                mode_session       "#[bg=$pink] #[bg=$surface1,fg=$pink,bold] SESSION "
+                mode_prompt        "#[bg=$pink] #[bg=$surface1,fg=$pink,bold] PROMPT "
 
-                tab_normal              "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{floating_indicator}"
-                tab_normal_fullscreen   "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{fullscreen_indicator}"
-                tab_normal_sync         "#[bg=$surface0,fg=$overlay0,bold]{index}|{name}{sync_indicator}"
-                tab_active              "#[bg=$surface0,fg=$text,bold]{index}|{name}{floating_indicator}"
-                tab_active_fullscreen   "#[bg=$surface0,fg=$text,bold]{index}|{name}{fullscreen_indicator}"
-                tab_active_sync         "#[bg=$surface0,fg=$text,bold]{index}|{name}{sync_indicator}"
-                tab_separator           "#[bg=$surface0] "
+                tab_normal              "#[bg=$surface0,fg=$text,bold] {index}{name}{floating_indicator} "
+                tab_normal_fullscreen   "#[bg=$surface0,fg=$text,bold] {index}{name}{fullscreen_indicator} "
+                tab_normal_sync         "#[bg=$surface0,fg=$text,bold] {index}{name}{sync_indicator} "
+                tab_active              "#[bg=$text,fg=$base,bold] {index}{name}{floating_indicator} "
+                tab_active_fullscreen   "#[bg=$text,fg=$base,bold] {index}{name}{fullscreen_indicator} "
+                tab_active_sync         "#[bg=$text,fg=$base,bold] {index}{name}{sync_indicator} "
+                tab_separator           "#[bg=$surface0]|"
 
                 tab_sync_indicator       " "
                 tab_fullscreen_indicator " 󰊓"
                 tab_floating_indicator   " 󰹙"
-
-                notification_format_unread "#[bg=$yellow,fg=$crust] #[bg=$surface1,fg=$yellow] {message} "
-                notification_format_no_notifications ""
-                notification_show_interval "10"
 
                 datetime          "{format}"
                 datetime_format   "%H.%M"
                 datetime_timezone "Asia/Jakarta"
             }
         }
+        children
     }
 }

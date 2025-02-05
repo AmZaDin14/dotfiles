@@ -3,8 +3,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 # Source/Load zinit
@@ -25,9 +25,12 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::systemd
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+	compinit
+done
+compinit -C
 zinit cdreplay -q
-
 
 # Prompt
 # eval "$(starship init zsh)" # Starship
@@ -35,18 +38,18 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.toml)" # Oh-My-
 
 # Keybindings
 bindkey -e
-bindkey '^p'    history-search-backward
-bindkey '^n'    history-search-forward
-bindkey '^[w'   kill-region
-bindkey '^@'   autosuggest-accept
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+bindkey '^@' autosuggest-accept
 
 # Ctrl Backspace
 autoload -U select-word-style
 select-word-style bash
-bindkey '^H'    backward-kill-word
+bindkey '^H' backward-kill-word
 bindkey "^[[3~" delete-char
-bindkey "^[[H"  beginning-of-line
-bindkey "^[[F"  end-of-line
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
@@ -65,7 +68,7 @@ setopt hist_find_no_dups
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
@@ -78,10 +81,16 @@ alias vi='vim'
 alias v='vi'
 alias c='clear'
 alias matrix='unimatrix -ab -s 96 -l s -c blue'
+alias hx='helix'
 
-alias t='tmux'
-bindkey -s '^[f' "tmux-sessionizer\n"
-bindkey -s '^[t' "t\n"
+alias z='zellij'
+bindkey -s '^[s' "zellij-sessionizer\n"
+set_tab_name() {
+  if [[ -n $ZELLIJ ]]; then
+    zellij action rename-tab ""
+  fi
+}
+set_tab_name
 
 # Shell integrations
 eval "$(fzf --zsh)"

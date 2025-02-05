@@ -4,7 +4,8 @@
 
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Ctrl s" { SwitchToMode "normal"; }
+        bind "Alt s" { Run "zellij-sessionizer"; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -143,13 +144,13 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
+        bind "Ctrl Alt i" { MoveTab "left"; }
+        bind "Ctrl h" { MoveFocusOrTab "left"; }
+        bind "Ctrl j" { MoveFocus "down"; }
+        bind "Ctrl k" { MoveFocus "up"; }
+        bind "Ctrl l" { MoveFocusOrTab "right"; }
+        bind "Ctrl Alt n" { NewPane; }
+        bind "Ctrl Alt o" { MoveTab "right"; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
@@ -292,7 +293,7 @@ default_layout "compact"
 //   - true (default, enabled)
 //   - false
 //
-// pane_frames false
+pane_frames false
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
